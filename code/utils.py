@@ -1,5 +1,6 @@
 yimport os
 import numpy as np 
+import datetime
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -219,7 +220,7 @@ def plot_verif(verif, year=2017):
     
     ax.fill_between(test.index, test.yhat_lower, test.yhat_upper, color='coral', alpha=0.3)
     
-    ax.axvline(str(year), color='0.8', alpha=0.7)
+    ax.axvline(datetime.datetime(year,1,1), color='0.8', alpha=0.7)
     
     ax.grid(ls=':', lw=0.5)
     
@@ -260,7 +261,7 @@ def plot_verif_component(verif, component='rain', year=2017):
     
     ax.fill_between(test.index, test.loc[:, component+'_lower'] * 100, test.loc[:, component+'_upper'] * 100, color='0.8', alpha=0.3)
     
-    ax.axvline(str(year), color='k', alpha=0.7)
+    ax.axvline(datetime.datetime(year,1,1), color='k', alpha=0.7)
     
     ax.grid(ls=':', lw=0.5)
     
